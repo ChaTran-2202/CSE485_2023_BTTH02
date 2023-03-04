@@ -1,7 +1,7 @@
 <?php
 class CategorySer{
     public function getAllCategory(){
-        require_once '../configs/DbConnect.php';
+        require_once '../configs/DbConnection.php';
         $sql = "SELECT * FROM theloai";
         $stmt = $pdo->prepare($sql);
         $stmt->execute();

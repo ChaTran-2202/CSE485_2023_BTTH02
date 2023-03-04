@@ -1,27 +1,32 @@
+<!-- Routing là gì? Định tuyến/Điều hướng -->
+<!-- Phân tích xem: URL của người dùng > Muốn gì -->
+<!-- Ví dụ: Trang chủ, Quản lý bài viết hay Thêm bài viết -->
+<!-- Chuyển quyền cho Controller tương ứng điều khiển tiếp -->
+<!-- URL của tôi thiết kế luôn có dạng: -->
+
+<!-- http://localhost/btth02v2/index.php?controller=A&action=B -->
+<!-- http://localhost/btth02v2/index.php -->
+<!-- http://localhost/btth02v2/index.php?controller=home&action=index -->
+
+<!-- Controller là tên của FILE controller mà chúng ta sẽ gọi -->
+<!-- Action là tên cả HÀM trong FILE controller mà chúng ta gọi -->
+
 <?php
+// B1: Bắt giá trị controller và action
+$controller = isset($_GET['controller']) ? $_GET['controller'] : 'home';
+$action = isset($_GET['action']) ? $_GET['action'] : 'index';
 
- //Routing: định tuyến
-    //Phân tích URL của người dùng đang Request > Tìm xem: Ai sẽ xử lý tiếp (Controller nào)
+// B2: Chuẩn hóa tên trước khi gọi
+$controller = ucfirst($controller);
+$controller .= 'Controller';
+$controllerPath = 'controllers/' . $controller . '.php';
 
-    //Tình huống 01: localhost/btth02/index.php
-    //Tình huống 02: localhost/btth02/index.php?controller=A&action=B
-    //localhost/btth02/index.php?controller=home&action=index
-    //localhost/btth02/index.php?controller=article&action=add
-    // Bước 01: Kiểm tra giá trị của controller và action
-    $controller = isset($_GET['controller'])?$_GET['controller']:'home';
-    $action     = isset($_GET['action'])?$_GET['action']:'index';
-    // Bước 02: Tìm tệp mà mình sẽ chuyển lại Quyền cho nó (Controller)
-    $controller = ucfirst($controller);
-    $controller .= 'Ctrl';
-    $controllerPath = 'controllers/'.$controller.'.php';
-    //Nếu không tồn tại TỆP
-    if(!file_exists($controllerPath)){
-        die('Tệp tin không tồn tại');
-    }
-    //Nếu có tồn tại tệp Controller
-    require($controllerPath);
-    echo $controllerPath;
-    // Bước 03: Khởi tạo đối tượng tương ứng của Controller và gọi hàm xử lý Action
-    $myObj = new $controller();
-    $myObj->$action();
+// B3. Để gọi nó Controller
+if (!file_exists($controllerPath)) {
+    die('Lỗi! Controller này không tồn tại');
+}
+require_once($controllerPath);
 
+// B4. Tạo đối tượng và gọi hàm của Controller
+$myObj = new $controller();     //controller=home > new HomeController()
+$myObj->$action();              //action=index > index()

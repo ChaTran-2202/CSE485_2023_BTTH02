@@ -1,3 +1,5 @@
+
+
 <!-- Routing là gì? Định tuyến/Điều hướng -->
 <!-- Phân tích xem: URL của người dùng > Muốn gì -->
 <!-- Ví dụ: Trang chủ, Quản lý bài viết hay Thêm bài viết -->
@@ -18,7 +20,7 @@ $action = isset($_GET['action']) ? $_GET['action'] : 'index';
 
 // B2: Chuẩn hóa tên trước khi gọi
 $controller = ucfirst($controller);
-$controller .= 'Controller';
+$controller .= 'Ctrl';
 $controllerPath = 'controllers/' . $controller . '.php';
 
 // B3. Để gọi nó Controller

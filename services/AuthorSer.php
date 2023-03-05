@@ -5,10 +5,12 @@
         // Chứa các hàm tương tác và xử lý dữ liệu      
         public function getAllAuthor(){
             // Bước 01: Kết nối DB Server      
-            require_once ROOT . '\configs\DbConnect.php';
-            // Bước 02: Truy vấn DL              
+            require_once ROOT . '\configs\DbConnection.php';
+            // Bước 02: Truy vấn DL
+            $db = new DbConnection();
+            $conn = $db->getConnection();              
             $sql = 'SELECT * FROM tacgia';            
-            $stmt = $pdo->prepare($sql);         
+            $stmt = $conn->prepare($sql);         
             $stmt->execute();              
             // Bước 03: Trả về dữ liệu
             $authors  = $stmt->fetchAll();                    
@@ -16,5 +18,4 @@
             return $authors;
         }
     }
-  
 ?>

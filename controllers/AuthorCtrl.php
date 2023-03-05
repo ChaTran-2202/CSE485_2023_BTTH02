@@ -1,5 +1,5 @@
 <?php
-define('ROOT', dirname(__FILE__, 2));
+// define('ROOT', dirname(__FILE__, 2));
 require_once ROOT.'/services/AuthorSer.php';
 require_once ROOT.'/views/authors/AuthorGet.php';
 

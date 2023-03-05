@@ -1,4 +1,6 @@
 <?php
+require (ROOT.'/models/Category.php');
+require (ROOT.'/configs/DbConnection.php');
 class CategoryCtrl{
     public function index(){
 

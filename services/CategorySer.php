@@ -1,6 +1,5 @@
 <?php
-include ("../configs/DbConnection.php");
-include ("../models/Category.php");
+require (ROOT.'/models/Category.php');
 class CategorySer{
     public function getAllCategory(){
         $dbConn = new DBConnection();

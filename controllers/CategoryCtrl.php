@@ -1,20 +1,26 @@
 <?php
-require (ROOT.'/models/Category.php');
-require (ROOT.'/configs/DbConnection.php');
-class CategoryCtrl{
-    public function index(){
+
+class CategoryCtrl
+{
+    public function __construct()
+    {
 
     }
-    public function show(){
 
+    public function index()
+    {
+        $categoryList = $this->category->getgetAllCategory();
     }
-    public function add(){
 
+    public function add()
+    {
     }
-    public function update(){
 
+    public function update()
+    {
     }
-    public function del(){
 
+    public function del()
+    {
     }
 }

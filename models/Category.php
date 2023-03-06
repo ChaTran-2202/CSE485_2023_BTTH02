@@ -2,7 +2,6 @@
 
 class Category
 {
-
     private $ma_tloai;
     private $ten_tloai;
     private $SlBaiViet;
@@ -13,33 +12,21 @@ class Category
         $this->ten_tloai = $this->ten_tloai;
     }
 
-    /**
-     * @return mixed
-     */
     public function getMaTloai()
     {
         return $this->ma_tloai;
     }
 
-    /**
-     * @return mixed
-     */
     public function getTenTloai()
     {
         return $this->ten_tloai;
     }
 
-    /**
-     * @param mixed $ma_tloai
-     */
     public function setMaTloai($ma_tloai)
     {
         $this->ma_tloai = $ma_tloai;
     }
 
-    /**
-     * @param mixed $ten_tloai
-     */
     public function setTenTloai($ten_tloai)
     {
         $this->ten_tloai = $ten_tloai;

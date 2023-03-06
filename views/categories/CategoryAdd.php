@@ -1,4 +1,4 @@
-<?php require (ROOT.'/layouts/admin_header.php');?>
+<?php require (ROOT.'/views/layouts/admin_header.php');?>
 <main class="container mt-5 mb-5">
     <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
     <div class="row">
@@ -18,4 +18,4 @@
         </div>
     </div>
 </main>
-<?php require (ROOT.'/layouts/footer.php');?>
+<?php require (ROOT.'/views/layouts/footer.php');?>

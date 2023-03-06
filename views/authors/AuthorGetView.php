@@ -16,7 +16,7 @@
         <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
         <div class="row">
             <div class="col-sm">
-                <a href="<?= ROOT ?>/index.php?controller=author&action=add" class="btn btn-success">Thêm tác giả</a>
+                <a href="views\authors\AuthorAddView.php" class="btn btn-success">Thêm tác giả</a>
                 <table class="table">
                     <thead>
                         <tr>
@@ -32,10 +32,10 @@
                                 <th scope="row"><?= $author->getId(); ?></th>
                                 <td><?=$author->getName();?></td>
                                 <td>
-                                    <a href="edit_author.php?id=<?=$author->getId();?>"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="index.php?controller=author&action=edit&id=<?= $author->getId();?>&name=<?=$author->getName();?>"><i class="fa-solid fa-pen-to-square"></i></a>
                                 </td>
                                 <td>
-                                    <a href="delete_author.php?id=<?=$author->getId();?>"><i class="fa-solid fa-trash"></i></a>
+                                    <a href=""><i class="fa-solid fa-trash"></i></a>
                                 </td>
                             </tr>
                       <?php  } ?>                                          

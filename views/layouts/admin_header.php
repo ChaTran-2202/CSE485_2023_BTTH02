@@ -36,10 +36,10 @@
                         <a class="nav-link" href="../admin/category.php">Thể loại</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= ROOT ?>/index.php?controller=author&action=get">Tác giả</a>
+                        <a class="nav-link" href="index.php?controller=author&action=get">Tác giả</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../admin/article.php">Bài viết</a>
+                        <a class="nav-link" href="/admin/article.php">Bài viết</a>
                     </li>
                 </ul>
             </div>

@@ -2,7 +2,8 @@
 // define('ROOT', dirname(__FILE__, 2));
 require_once ROOT.'/services/AuthorSer.php';
 require_once ROOT.'/views/authors/AuthorGet.php';
-
+require_once ROOT.'/views/authors/AuthorAdd.php';
+require_once ROOT.'/views/authors/AuthorEdit.php';
 class AuthorCtrl{
 
     public function get(){
@@ -15,13 +16,17 @@ class AuthorCtrl{
         
     }
 
-    public function edit(){
-        
+    public function add(){
+        $authorsAdd = new AuthorAdd();
+        $authorsAdd->add();
     }
 
-    public function add(){
-        
+    public function edit(){
+        $authorsEdit = new AuthorEdit();
+        $authorsEdit->edit();
     }
+
+    
 }
 
     // $x = new AuthorCtrl();

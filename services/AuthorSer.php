@@ -1,10 +1,11 @@
 <?php
+   // Bước 01: Kết nối DB Server      
+            require_once ROOT . '\configs\DbConnection.php';
+            require_once ROOT . '\models\Author.php';
     class AuthorSer{
         // Chứa các hàm tương tác và xử lý dữ liệu      
         public function getAllAuthor(){
-            // Bước 01: Kết nối DB Server      
-            require_once ROOT . '\configs\DbConnection.php';
-            require_once ROOT . '\models\Author.php';
+         
             // Bước 02: Truy vấn DL
             $db = new DbConnection();
             $conn = $db->getConnection();              

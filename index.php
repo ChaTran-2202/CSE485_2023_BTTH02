@@ -1,3 +1,5 @@
+
+
 <!-- Routing là gì? Định tuyến/Điều hướng -->
 <!-- Phân tích xem: URL của người dùng > Muốn gì -->
 <!-- Ví dụ: Trang chủ, Quản lý bài viết hay Thêm bài viết -->
@@ -12,13 +14,15 @@
 <!-- Action là tên cả HÀM trong FILE controller mà chúng ta gọi -->
 
 <?php
+define('ROOT', dirname(__FILE__, 1));
+
 // B1: Bắt giá trị controller và action
 $controller = isset($_GET['controller']) ? $_GET['controller'] : 'home';
 $action = isset($_GET['action']) ? $_GET['action'] : 'index';
 
 // B2: Chuẩn hóa tên trước khi gọi
 $controller = ucfirst($controller);
-$controller .= 'Controller';
+$controller .= 'Ctrl';
 $controllerPath = 'controllers/' . $controller . '.php';
 
 // B3. Để gọi nó Controller

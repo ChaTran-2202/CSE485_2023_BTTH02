@@ -16,20 +16,20 @@
         <div class="row">
             <div class="col-sm">
                 <h3 class="text-center text-uppercase fw-bold">Sửa tác giả</h3>
-                <form action="process_add_author.php" method="post">
+                <form action="index.php?controller=author&action=edit" method="post">
                 <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatId">Mã tác giả</span>
-                        <input type="text" class="form-control" name="txtCatId" readonly value=<?= $_GET['id']?>>
+                        <input type="text" class="form-control" name="id" readonly value=<?= $_GET['id']?>>
                     </div>
 
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatName">Tên tác giả</span>
-                        <input type="text" class="form-control" name="txtCatName" value =<?= $_GET['name']?>>
+                        <input type="text" class="form-control" name="name" value =<?= $_GET['name']?>>
                     </div>
 
                     <div class="form-group  float-end ">
                         <input type="submit" name = "save" value="Sửa" class="btn btn-success">
-                        <a href="category.php" class="btn btn-warning ">Quay lại</a>
+                        <a href="index.php?controller=author&action=get" class="btn btn-warning ">Quay lại</a>
                     </div>
                 </form>
             </div>

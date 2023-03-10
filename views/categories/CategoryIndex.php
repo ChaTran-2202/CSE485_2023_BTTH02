@@ -6,7 +6,7 @@ require(ROOT . '/views/layouts/admin_header.php');
         <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
         <div class="row">
             <div class="col-sm">
-                <a href="<?= ROOT ?>/index.php?controller=category&action=add" class="btn btn-success">Thêm mới</a>
+                <a href="index.php?controller=category&action=add" class="btn btn-success">Thêm mới</a>
                 <table class="table">
                     <thead>
                     <tr>
@@ -17,19 +17,20 @@ require(ROOT . '/views/layouts/admin_header.php');
                     </tr>
                     </thead>
                     <tbody>
-                    <?php foreach ($categoryList as $category) { ?>
+                    <?php
+                    foreach ($categories as $category): ?>
                         <tr>
-                            <th scope="row"><?= $category->getMaTloai(); ?></th>
-                            <td><?= $category->getTenTloai(); ?></td>
+                            <th scope="row"><?= $category['ma_tloai']; ?></th>
+                            <td><?= $category['ten_tloai']; ?></td>
                             <td>
-                                <a href="<?= ROOT ?>/index.php?controller=category&action=update&id=<?= $category->getMaTloai(); ?>"><i
+                                <a href="index.php?controller=category&action=update&id=<?= $category['ma_tloai']; ?>"><i
                                             class="fa-solid fa-pen-to-square"></i></a>
                             </td>
                             <td>
                                 <a href=""><i class="fa-solid fa-trash"></i></a>
                             </td>
                         </tr>
-                    <?php } ?>
+                    <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>

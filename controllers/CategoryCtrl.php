@@ -1,15 +1,14 @@
 <?php
+require_once('services/CategorySer.php');
 
-class CategoryCtrl
+class CategoryCtrl extends BaseController
 {
-    public function __construct()
-    {
-
-    }
 
     public function index()
     {
-        $categoryList = $this->category->getgetAllCategory();
+        $this->load_model('CategorySer');
+        $categories = $this->CategorySer::getAllCategory();
+        $this->load_view('categories/CategoryIndex', ['categories' => $categories]);
     }
 
     public function add()

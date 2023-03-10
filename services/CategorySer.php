@@ -1,13 +1,12 @@
 <?php
-
+require_once ('configs/DbConnection.php');
+require_once ('models/Category.php');
 class CategorySer
 {
     private $conn;
-
     public function __construct()
     {
-        $this->conn = new DbConnection();
-        $this->conn->getConnection();
+        $this->conn = DbConnection::getConnection();
     }
 
     public function getAllCategory()
@@ -15,8 +14,12 @@ class CategorySer
         $sql = "SELECT * FROM theloai";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
-        $categoryList = $stmt->fetchAll();
-        return $categoryList;
+        $categories = [];
+        foreach ($stmt->fetchAll() as $row){
+            $category = new Category($row['ma_tloai'], $row['ten_tloai']);
+            array_push($categories,$category);
+        }
+        return $categories;
     }
 
     public function addCategory($data)

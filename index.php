@@ -28,5 +28,5 @@ if (!file_exists($controllerPath)) {
 require_once($controllerPath);
 
 // B4. Tạo đối tượng và gọi hàm của Controller
-$myObj = new $controller();     //controller=home > new HomeController()
-$myObj->$action();              //action=index > index()
+$myCtrl = new $controller();     //controller=home > new HomeController()
+$myCtrl->$action();              //action=index > index()

@@ -4,9 +4,9 @@ require_once(SERVICE_PATH.'/CategorySer.php');
 class CategoryCtrl
 {
     private $category;
-    function view($page, $categories){
-        if (isset($categories)){
-            extract($categories);
+    function view($page, $data){
+        if (isset($data)){
+            extract($data);
         }
         require_once (VIEW_PATH.'/categories/'.$page.'.php');
     }
@@ -33,5 +33,3 @@ class CategoryCtrl
         $this->category->delCategory();
     }
 }
-$obj = new CategoryCtrl();
-echo var_dump($obj->index());

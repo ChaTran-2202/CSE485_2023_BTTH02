@@ -17,7 +17,7 @@ require(VIEW_PATH . '/layouts/admin_header.php');
                     </thead>
                     <tbody>
                     <?php
-                    foreach ($categories as $category): ?>
+                    foreach ($data as $category): ?>
                         <tr>
                             <th scope="row"><?= $category->getMaTloai(); ?></th>
                             <td><?= $category->getTenTloai(); ?></td>

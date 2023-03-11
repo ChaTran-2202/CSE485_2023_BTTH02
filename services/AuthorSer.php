@@ -1,14 +1,14 @@
 <?php
    // Bước 01: Kết nối DB Server      
-            require_once ROOT . '\configs\DbConnection.php';
-            require_once ROOT . '\models\Author.php';
+            require_once DB_PATH . '\DbConnection.php';
+            require_once MODEL_PATH . '\Author.php';
     class AuthorSer{
         // Chứa các hàm tương tác và xử lý dữ liệu      
         public function getAllAuthor(){
          
             // Bước 02: Truy vấn DL
             $db = new DbConnection();
-            $conn = $db->getConnection();              
+            $conn = $db->getConnection();
             $sql = 'SELECT * FROM tacgia';            
             $stmt = $conn->prepare($sql);         
             $stmt->execute();              
@@ -64,10 +64,10 @@
       
     }
 
-    // echo "<pre>";
-    // $x = new AuthorSer();
-    // $c = $x->getAllAuthor();
-    // print_r($c);
-    // echo "</pre>";
+//     echo "<pre>";
+//     $x = new AuthorSer();
+//     $c = $x->getAllAuthor();
+//     print_r($c);
+//     echo "</pre>";
 
 ?>

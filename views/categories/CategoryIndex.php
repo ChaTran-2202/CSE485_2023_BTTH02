@@ -1,6 +1,5 @@
 <?php
-define('ROOT', dirname(__FILE__, 3));
-require(ROOT . '/views/layouts/admin_header.php');
+require(VIEW_PATH . '/layouts/admin_header.php');
 ?>
     <main class="container mt-5 mb-5">
         <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
@@ -20,10 +19,10 @@ require(ROOT . '/views/layouts/admin_header.php');
                     <?php
                     foreach ($categories as $category): ?>
                         <tr>
-                            <th scope="row"><?= $category['ma_tloai']; ?></th>
-                            <td><?= $category['ten_tloai']; ?></td>
+                            <th scope="row"><?= $category->getMaTloai(); ?></th>
+                            <td><?= $category->getTenTloai(); ?></td>
                             <td>
-                                <a href="index.php?controller=category&action=update&id=<?= $category['ma_tloai']; ?>"><i
+                                <a href="index.php?controller=category&action=update&id=<?= $category->getMaTloai(); ?>"><i
                                             class="fa-solid fa-pen-to-square"></i></a>
                             </td>
                             <td>
@@ -36,4 +35,4 @@ require(ROOT . '/views/layouts/admin_header.php');
             </div>
         </div>
     </main>
-<?php require(ROOT . '/views/layouts/footer.php'); ?>
+<?php require(VIEW_PATH. '/layouts/footer.php'); ?>

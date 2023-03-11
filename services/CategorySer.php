@@ -1,6 +1,7 @@
 <?php
-require_once ('configs/DbConnection.php');
-require_once ('models/Category.php');
+require_once(DB_PATH . '/DbConnection.php');
+require_once(MODEL_PATH . '/Category.php');
+
 class CategorySer
 {
     private $conn;
@@ -11,40 +12,37 @@ class CategorySer
 
     public function getAllCategory()
     {
-        $sql = "SELECT * FROM theloai";
-        $stmt = $this->conn->prepare($sql);
+        $stmt = $this->conn->prepare("SELECT * FROM theloai");
         $stmt->execute();
-        $categories = [];
-        foreach ($stmt->fetchAll() as $row){
-            $category = new Category($row['ma_tloai'], $row['ten_tloai']);
-            array_push($categories,$category);
+        $categories = array();
+        foreach ($stmt->fetchAll() as $row) {
+            $categories[] = new Category($row['ma_tloai'], $row['ten_tloai']);
         }
         return $categories;
     }
 
-    public function addCategory($data)
+    public function addCategory($id, $name)
     {
-        $sql = "INSERT INTO theloai (ma_tloai, ten_tloai) VALUES (:id, :name)";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindValue('ma_tloai', $data['id'], PDO::PARAM_INT);
-        $stmt->bindValue('ten_tloai', $data['name'], PDO::PARAM_STR);
-        $stmt->execute();
+        $stmt = $this->conn->prepare("INSERT INTO theloai (ma_tloai, ten_tloai) VALUES (?, ?)");
+        $stmt->execute([$id, $name]);
+        return $this->conn->lastInsertId();
     }
 
-    public function updateCategory($data)
+    public function updateCategory($id, $name)
     {
-        $sql = "UPDATE theloai SET ten_tloai = :name WHERE ma_tloai = :id";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindValue('ma_tloai', $data['name'], PDO::PARAM_INT);
-        $stmt->bindValue('ten_tloai', $data['id'], PDO::PARAM_STR);
-        $stmt->execute();
+        $stmt = $this->conn->prepare("UPDATE theloai SET ten_tloai = ? WHERE ma_tloai = ?");
+        return $stmt->execute([$name, $id]);
     }
 
     public function delCategory($id)
     {
-        $sql = "DELETE FROM theloai WHERE ma_tloai = :id";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindValue('ten_tloai', $id, PDO::PARAM_STR);
-        $stmt->execute();
+        $stmt = $this->conn->prepare("DELETE FROM theloai WHERE ma_tloai = ?");
+        return $stmt->execute([$id]);
     }
 }
+
+//echo "<pre>";
+//$x = new CategorySer();
+//$c = $x->getAllCategory();
+//print_r($c);
+//echo "</pre>";

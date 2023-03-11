@@ -3,7 +3,7 @@
   class AuthorGet{
 
     public function showAllAuthor($authors_arr){
-        require_once ROOT.'/views/authors/AuthorGetView.php';
+        require_once VIEW_PATH.'/authors/AuthorGetView.php';
     }
 
 }

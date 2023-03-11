@@ -12,7 +12,6 @@
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="css/style_login.css">
 </head>
-<body>
 <header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary shadow p-3 bg-white rounded">
         <div class="container-fluid">
@@ -33,7 +32,7 @@
                         <a class="nav-link" href="../index.php">Trang ngoài</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../admin/category.php">Thể loại</a>
+                        <a class="nav-link" href="index.php?controller=category&action=index">Thể loại</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="index.php?controller=author&action=get">Tác giả</a>
@@ -46,3 +45,4 @@
         </div>
     </nav>
 </header>
+<body>

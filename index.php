@@ -1,5 +1,3 @@
-
-
 <!-- Routing là gì? Định tuyến/Điều hướng -->
 <!-- Phân tích xem: URL của người dùng > Muốn gì -->
 <!-- Ví dụ: Trang chủ, Quản lý bài viết hay Thêm bài viết -->
@@ -14,8 +12,14 @@
 <!-- Action là tên cả HÀM trong FILE controller mà chúng ta gọi -->
 
 <?php
-define('ROOT', dirname(__FILE__, 1));
-
+define('ROOT', dirname(__FILE__));
+define('MODEL_PATH', ROOT . '/models');
+define('VIEW_PATH', ROOT . '/views');
+define('CONTROLLER_PATH', ROOT . '/controllers');
+define('SERVICE_PATH', ROOT.'/services');
+define('DB_PATH', ROOT . '/configs');
+define('URL', 'http://localhost/CSE485_2023_BTTH02/');
+define('URL_ASSET', 'http://localhost/CSE485_2023_BTTH02/assets/');
 // B1: Bắt giá trị controller và action
 $controller = isset($_GET['controller']) ? $_GET['controller'] : 'home';
 $action = isset($_GET['action']) ? $_GET['action'] : 'index';
@@ -23,11 +27,11 @@ $action = isset($_GET['action']) ? $_GET['action'] : 'index';
 // B2: Chuẩn hóa tên trước khi gọi
 $controller = ucfirst($controller);
 $controller .= 'Ctrl';
-$controllerPath = 'controllers/' . $controller . '.php';
+$controllerPath = CONTROLLER_PATH .'/' . $controller . '.php';
 
 // B3. Để gọi nó Controller
 if (!file_exists($controllerPath)) {
-    die('Lỗi! Controller này không tồn tại');
+    die("Controller ".$controller . " không tồn tại!");
 }
 require_once($controllerPath);
 

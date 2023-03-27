@@ -5,9 +5,9 @@ class CategoryCtrl
 {
     private $category;
     function view($page, $data){
-        if (isset($data)){
-            extract($data);
-        }
+//        if (isset($data)){
+//            extract($data);
+//        }
         require_once (VIEW_PATH.'/categories/'.$page.'.php');
     }
     public function index()
@@ -19,17 +19,28 @@ class CategoryCtrl
 
     public function add()
     {
+        require_once (VIEW_PATH.'/categories/CategoryAdd.php');
+    }
+
+    public function addCat(){
         $this->category = new CategorySer();
-        $categories = $this->category->addCategory();
+        $this->category->addCategory($_POST['txtCatName']);
+    }
+
+    public function edit()
+    {
+        require_once (VIEW_PATH.'/categories/CategoryEdit.php');
     }
 
     public function update()
     {
-        $this->category->updateCategory();
+        $this->category = new CategorySer();
+        $this->category->updateCategory($_POST['txtCatId'], $_POST['txtCatName']);
     }
 
-    public function del()
+    public function delete()
     {
-        $this->category->delCategory();
+        $this->category = new CategorySer();
+        $this->category->delCategory($_GET['id']);
     }
 }

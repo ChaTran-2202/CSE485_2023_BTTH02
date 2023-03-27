@@ -22,11 +22,11 @@ require(VIEW_PATH . '/layouts/admin_header.php');
                             <th scope="row"><?= $category->getMaTloai(); ?></th>
                             <td><?= $category->getTenTloai(); ?></td>
                             <td>
-                                <a href="index.php?controller=category&action=update&id=<?= $category->getMaTloai(); ?>"><i
+                                <a href="index.php?controller=category&action=edit&id=<?= $category->getMaTloai(); ?>&name=<?= $category->getTenTloai(); ?>"><i
                                             class="fa-solid fa-pen-to-square"></i></a>
                             </td>
                             <td>
-                                <a href=""><i class="fa-solid fa-trash"></i></a>
+                                <a href="index.php?controller=category&action=delete&id=<?= $category->getMaTloai(); ?>"><i class="fa-solid fa-trash"></i></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

@@ -21,23 +21,30 @@ class CategorySer
         return $categories;
     }
 
-    public function addCategory($id, $name)
+    public function addCategory($name)
     {
-        $stmt = $this->conn->prepare("INSERT INTO theloai (ma_tloai, ten_tloai) VALUES (?, ?)");
-        $stmt->execute([$id, $name]);
-        return $this->conn->lastInsertId();
+        $sql = $this->conn->prepare('SELECT COUNT(*) as quatity FROM theloai');
+        $sql->execute();
+        $index = $sql->fetch();
+        $id = $index['quatity'] + 1;
+
+        $stmt = $this->conn->prepare("INSERT INTO theloai (ma_tloai, ten_tloai) VALUES ($id, '$name')");
+        $stmt->execute();
+        header('Location:index.php?controller=category&action=index');
     }
 
     public function updateCategory($id, $name)
     {
-        $stmt = $this->conn->prepare("UPDATE theloai SET ten_tloai = ? WHERE ma_tloai = ?");
-        return $stmt->execute([$name, $id]);
+        $stmt = $this->conn->prepare("UPDATE theloai SET ten_tloai = '$name' WHERE ma_tloai = $id");
+        $stmt->execute();
+        header('Location:index.php?controller=category&action=index');
     }
 
     public function delCategory($id)
     {
-        $stmt = $this->conn->prepare("DELETE FROM theloai WHERE ma_tloai = ?");
-        return $stmt->execute([$id]);
+        $stmt = $this->conn->prepare("DELETE FROM theloai WHERE ma_tloai = $id");
+        $stmt->execute();
+        header('Location:index.php?controller=category&action=index');
     }
 }
 

@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-sm">
             <h3 class="text-center text-uppercase fw-bold">Thêm mới thể loại</h3>
-            <form method="post" action="">
+            <form method="post" action="index.php?controller=category&action=addCat">
                 <div class="input-group mt-3 mb-3">
                     <span class="input-group-text" id="lblCatName">Tên thể loại</span>
                     <input type="text" class="form-control" name="txtCatName" >
